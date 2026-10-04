@@ -1,0 +1,825 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>For Jaanu 💐</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: linear-gradient(135deg, #fff0f5, #ffe4ec, #fff8fa);
+    color: #4a2633;
+    overflow-x: hidden;
+}
+
+/* ---------- GENERAL ---------- */
+
+section {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+    position: relative;
+}
+
+.container {
+    width: min(900px, 92%);
+    text-align: center;
+}
+
+h1, h2 {
+    font-family: Georgia, serif;
+}
+
+button {
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+/* ---------- FLOATING HEARTS ---------- */
+
+.heart {
+    position: fixed;
+    bottom: -30px;
+    font-size: 20px;
+    animation: floatHeart linear forwards;
+    pointer-events: none;
+    z-index: 100;
+}
+
+@keyframes floatHeart {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* ---------- LANDING ---------- */
+
+#home {
+    background:
+        radial-gradient(circle at top left, #ffffffaa, transparent 40%),
+        radial-gradient(circle at bottom right, #ffb6c855, transparent 40%);
+}
+
+.flower {
+    font-size: 70px;
+    animation: flowerFloat 3s ease-in-out infinite;
+}
+
+@keyframes flowerFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-12px);
+    }
+}
+
+.subtitle {
+    font-size: 17px;
+    margin-top: 18px;
+    color: #815263;
+}
+
+.main-title {
+    font-size: clamp(48px, 10vw, 90px);
+    margin-top: 10px;
+    color: #7d2945;
+}
+
+.small-note {
+    margin-top: 18px;
+    font-size: 14px;
+    opacity: 0.7;
+}
+
+.primary-btn {
+    margin-top: 35px;
+    padding: 15px 30px;
+    border-radius: 50px;
+    background: #d94f78;
+    color: white;
+    font-size: 16px;
+    box-shadow: 0 10px 25px #d94f7844;
+    transition: 0.3s;
+}
+
+.primary-btn:hover {
+    transform: translateY(-4px) scale(1.03);
+    box-shadow: 0 15px 30px #d94f7855;
+}
+
+/* ---------- MESSAGE ---------- */
+
+.message-box {
+    background: #ffffffaa;
+    backdrop-filter: blur(12px);
+    padding: 45px 35px;
+    border-radius: 30px;
+    box-shadow: 0 20px 50px #8d405322;
+}
+
+.message-box h2 {
+    font-size: clamp(32px, 6vw, 50px);
+    color: #8a3150;
+    margin-bottom: 25px;
+}
+
+.message {
+    font-size: 19px;
+    line-height: 1.8;
+    color: #603646;
+}
+
+.highlight {
+    color: #d33e6b;
+    font-weight: bold;
+}
+
+/* ---------- REASONS ---------- */
+
+#reasons {
+    background: #fff7fa;
+}
+
+.section-title {
+    font-size: clamp(35px, 7vw, 55px);
+    color: #8a3150;
+    margin-bottom: 15px;
+}
+
+.section-subtitle {
+    margin-bottom: 35px;
+    color: #815263;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    height: 190px;
+    perspective: 1000px;
+    cursor: pointer;
+}
+
+.card-inner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transition: transform 0.7s;
+    transform-style: preserve-3d;
+}
+
+.card.flipped .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 25px;
+    padding: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    box-shadow: 0 12px 30px #9e426022;
+}
+
+.card-front {
+    background: white;
+}
+
+.card-front span {
+    font-size: 38px;
+    margin-bottom: 10px;
+}
+
+.card-front p {
+    font-weight: bold;
+    color: #7d2945;
+}
+
+.card-back {
+    background: #d94f78;
+    color: white;
+    transform: rotateY(180deg);
+    line-height: 1.6;
+}
+
+/* ---------- HUG ---------- */
+
+#hug {
+    background: linear-gradient(135deg, #ffe4ec, #fff);
+}
+
+.hug-emoji {
+    font-size: 100px;
+    transition: 0.4s;
+}
+
+.hug-emoji.hugging {
+    animation: hug 1s ease-in-out;
+}
+
+@keyframes hug {
+    0% {
+        transform: scale(1);
+    }
+
+    40% {
+        transform: scale(1.35);
+    }
+
+    70% {
+        transform: scale(1.15);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.hug-text {
+    margin-top: 20px;
+    font-size: 22px;
+    min-height: 35px;
+}
+
+/* ---------- FINAL ---------- */
+
+#final {
+    background: #7d2945;
+    color: white;
+}
+
+.final-container {
+    max-width: 750px;
+}
+
+.final-container h2 {
+    font-size: clamp(42px, 8vw, 70px);
+    margin-bottom: 25px;
+}
+
+.final-message {
+    font-size: 20px;
+    line-height: 1.9;
+}
+
+.final-heart {
+    font-size: 70px;
+    margin-top: 30px;
+    animation: heartbeat 1.4s infinite;
+}
+
+@keyframes heartbeat {
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+/* ---------- SECRET BUTTON ---------- */
+
+.secret-btn {
+    margin-top: 35px;
+    padding: 13px 25px;
+    border-radius: 50px;
+    background: white;
+    color: #7d2945;
+    font-weight: bold;
+}
+
+.secret-message {
+    display: none;
+    margin-top: 25px;
+    font-size: 18px;
+    line-height: 1.7;
+}
+
+.secret-message.show {
+    display: block;
+    animation: fadeIn 1s;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ---------- MOBILE ---------- */
+
+@media (max-width: 600px) {
+
+    section {
+        min-height: 100svh;
+        padding: 30px 15px;
+    }
+
+    .message-box {
+        padding: 35px 22px;
+    }
+
+    .message {
+        font-size: 17px;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+    .card {
+        height: 160px;
+    }
+
+    .hug-emoji {
+        font-size: 80px;
+    }
+}
+</style>
+</head>
+
+
+<body>
+
+<!-- =====================================================
+     LANDING
+===================================================== -->
+
+<section id="home">
+
+    <div class="container">
+
+        <div class="flower">💐</div>
+
+        <p class="subtitle">
+            A tiny website for a very important person...
+        </p>
+
+        <h1 class="main-title">
+            For Jaanu
+        </h1>
+
+        <p class="small-note">
+        </p>
+
+        <button class="primary-btn"
+                onclick="goTo('message')">
+            I have something to tell you 💌
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     APOLOGY MESSAGE
+===================================================== -->
+
+<section id="message">
+
+    <div class="container">
+
+        <div class="message-box">
+
+            <h2>
+                Okay... listen 🥺
+            </h2>
+
+            <p class="message">
+
+                I know I've been a little too busy these past few days
+                and haven't been talking to you properly.
+
+                <br><br>
+
+                And honestly...
+
+                <span class="highlight">
+                    I'm sorry.
+                </span>
+
+                <br><br>
+
+                It was never because I didn't want to talk to you.
+                Life just decided to throw approximately
+                <i>many things</i> at me at once. 😭
+
+                <br><br>
+
+                But even when I was busy,
+                <span class="highlight">
+                    you were still in my head.
+                </span>
+
+                <br><br>
+
+                So...
+
+                I made you this little corner of the internet.
+
+                <br><br>
+
+            </p>
+
+            <button class="primary-btn"
+                    onclick="goTo('reasons')">
+                Okay... continue 👀
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     REASONS
+===================================================== -->
+
+<section id="reasons">
+
+    <div class="container">
+
+        <h2 class="section-title">
+            A few things about you ❤️
+        </h2>
+
+        <p class="section-subtitle">
+            Tap the cards. I know you're curious. 👀
+        </p>
+
+        <div class="cards">
+
+            <div class="card" onclick="flipCard(this)">
+                <div class="card-inner">
+
+                    <div class="card-front">
+                        <span>🌷</span>
+                        <p>01 — Your smile</p>
+                    </div>
+
+                    <div class="card-back">
+                        You genuinely have one of those smiles
+                        that can make a bad day feel slightly less bad.
+                    </div>
+
+                </div>
+            </div>
+
+
+            <div class="card" onclick="flipCard(this)">
+                <div class="card-inner">
+
+                    <div class="card-front">
+                        <span>🦋</span>
+                        <p>02 — Your existence</p>
+                    </div>
+
+                    <div class="card-back">
+                        Somehow you became one of my favorite
+                        parts of every day without even trying.
+                    </div>
+
+                </div>
+            </div>
+
+
+            <div class="card" onclick="flipCard(this)">
+                <div class="card-inner">
+
+                    <div class="card-front">
+                        <span>🥹</span>
+                        <p>03 — Your cute side</p>
+                    </div>
+
+                    <div class="card-back">
+                        Especially when you're pretending
+                        you're not being cute. Nice try. 😭
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+        <button class="primary-btn"
+                onclick="goTo('hug')">
+            I think you need this 🫂
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     HUG MACHINE
+===================================================== -->
+
+<section id="hug">
+
+    <div class="container">
+
+        <h2 class="section-title">
+            Emergency Hug Delivery 🫂
+        </h2>
+
+        <p class="section-subtitle">
+        </p>
+
+        <div id="hugEmoji"
+             class="hug-emoji">
+            🫂
+        </div>
+
+        <div id="hugText"
+             class="hug-text">
+            Press the button.
+        </div>
+
+        <button class="primary-btn"
+                onclick="giveHug()">
+            PRESS FOR HUG 🫂
+        </button>
+
+        <br>
+
+        <button class="primary-btn"
+                onclick="goTo('final')">
+            One last thing... ❤️
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     FINAL MESSAGE
+===================================================== -->
+
+<section id="final">
+
+    <div class="container final-container">
+
+        <h2>
+            Hey, Jaanu. ❤️
+        </h2>
+
+        <p class="final-message">
+
+            I know the last few days haven't been the best.
+
+            <br><br>
+
+            But I don't want you thinking that
+            being busy means I care any less.
+
+            <br><br>
+
+            Sometimes life gets chaotic.
+
+            Sometimes I disappear into work.
+
+            Sometimes I'm terrible at balancing everything.
+
+            <br><br>
+
+            But through all of that...
+
+            <br>
+
+            <b>
+                You're still someone I want to come back to.
+            </b>
+
+            <br><br>
+
+            So please don't stay sad for too long, okay?
+
+            <br><br>
+
+            And yes...
+
+            <br>
+
+            I owe you a proper conversation,
+            approximately 47 hugs,
+            and probably some food. 😭
+
+        </p>
+
+        <div class="final-heart">
+            ❤️
+        </div>
+
+
+        <button class="secret-btn"
+                onclick="showSecret()">
+            Don't click this 👀
+        </button>
+
+        <p id="secretMessage"
+           class="secret-message">
+
+            Okay fine.
+
+            <br><br>
+
+            I love you, idiot. ❤️
+
+            <br><br>
+
+            Now smile.
+
+            <br>
+
+        </p>
+
+    </div>
+
+</section>
+
+
+<script>
+
+/* =====================================================
+   SMOOTH NAVIGATION
+===================================================== */
+
+function goTo(sectionId) {
+
+    document.getElementById(sectionId)
+        .scrollIntoView({
+            behavior: "smooth"
+        });
+
+}
+
+
+/* =====================================================
+   CARD FLIP
+===================================================== */
+
+function flipCard(card) {
+
+    card.classList.toggle("flipped");
+
+}
+
+
+/* =====================================================
+   HUG FUNCTION
+===================================================== */
+
+function giveHug() {
+
+    const hugEmoji =
+        document.getElementById("hugEmoji");
+
+    const hugText =
+        document.getElementById("hugText");
+
+    hugEmoji.classList.remove("hugging");
+
+    /* Restart animation */
+
+    void hugEmoji.offsetWidth;
+
+    hugEmoji.classList.add("hugging");
+
+    hugText.innerHTML =
+        "Hug successfully delivered. 🫂❤️";
+
+    createHearts(15);
+
+}
+
+
+/* =====================================================
+   SECRET MESSAGE
+===================================================== */
+
+function showSecret() {
+
+    const secret =
+        document.getElementById("secretMessage");
+
+    secret.classList.add("show");
+
+    createHearts(30);
+
+}
+
+
+/* =====================================================
+   FLOATING HEARTS
+===================================================== */
+
+function createHeart() {
+
+    const heart =
+        document.createElement("div");
+
+    heart.classList.add("heart");
+
+    const hearts = [
+        "❤️",
+        "💗",
+        "💕",
+        "💖",
+        "💐",
+        "🌷"
+    ];
+
+    heart.innerHTML =
+        hearts[Math.floor(Math.random() * hearts.length)];
+
+    heart.style.left =
+        Math.random() * 100 + "vw";
+
+    heart.style.fontSize =
+        (Math.random() * 15 + 15) + "px";
+
+    heart.style.animationDuration =
+        (Math.random() * 5 + 5) + "s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 10000);
+
+}
+
+
+/* Create random hearts */
+
+setInterval(createHeart, 1200);
+
+
+/* Burst of hearts */
+
+function createHearts(amount) {
+
+    for (let i = 0; i < amount; i++) {
+
+        setTimeout(() => {
+            createHeart();
+        }, i * 80);
+
+    }
+
+}
+
+</script>
+
+</body>
+</html>
+```
